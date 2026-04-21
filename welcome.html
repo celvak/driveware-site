@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to DriveWare</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: #0a0a0a; color: #e8e8e8; line-height: 1.7;
+      max-width: 640px; margin: 0 auto; padding: 80px 24px;
+      text-align: center;
+    }
+    h1 { font-size: 36px; margin-bottom: 16px; }
+    h1 .accent { color: #00ff88; }
+    p { color: #cfcfcf; font-size: 17px; max-width: 520px; margin: 0 auto 20px; }
+    .steps { text-align: left; background: #141414; border: 1px solid #222; border-radius: 8px; padding: 24px; margin-top: 40px; }
+    .steps h3 { margin-bottom: 12px; }
+    .steps li { color: #cfcfcf; margin-bottom: 10px; }
+    a { color: #00ff88; }
+    .back { margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>Thanks — <span class="accent">you're in.</span></h1>
+  <p>Your DriveWare subscription is active. Because we're in manual-provisioning mode for the first cohort, I'll personally set up your managed bucket and send your keys within a few hours. Usually much sooner.</p>
+  <p>Keep an eye on the email you used at checkout. The setup email includes your bucket name, API keys, and install commands.</p>
+
+  <div class="steps">
+    <h3>While you wait:</h3>
+    <ol>
+      <li>Install <a href="https://rclone.org/install/">rclone</a> (<code>brew install rclone</code> on macOS, <code>apt install rclone</code> on Linux).</li>
+      <li>Clone the repo: <code>git clone https://github.com/celvak/driveware.git</code></li>
+      <li>When you get your setup email, run <code>./bin/driveware-setup.sh</code> and paste in the keys we send you.</li>
+    </ol>
+  </div>
+
+  <div class="back">
+    <a href="/">← Back to DriveWare</a>
+  </div>
+</body>
+</html>
