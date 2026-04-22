@@ -29,8 +29,8 @@
       <ul>
         <li><a href="#how">How it works</a></li>
         <li><a href="#filter">Dev-aware</a></li>
+        <li><a href="#security">Security</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li><a href="#pricing" class="nav-cta">Subscribe</a></li>
       </ul>
     </div>
@@ -40,7 +40,7 @@
     <div class="container">
       <span class="eyebrow"><span class="pulse"></span>v0.2 live · onboarding first cohort</span>
       <h1>Your dev workspace, <span class="accent">extended into the cloud</span> — without breaking your workflow.</h1>
-      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is managed cloud storage built for developers — dev-aware, git-aware, and mounts as a local folder.</p>
+      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is managed cloud storage built for developers — dev-aware, git-aware, mounts as a local folder, and <span style="color: var(--fg);">secured like a laptop behind the company VPN</span>, not generic consumer cloud.</p>
       <div class="cta">
         <a href="#pricing" class="btn btn-primary btn-arrow">Subscribe — from $9/mo</a>
         <span class="note">7-day refund · cancel anytime · macOS &amp; Linux</span>
@@ -155,9 +155,9 @@
 
   <section id="pricing">
     <div class="container reveal">
-      <h2>Pricing — <span class="accent">managed, no setup pain</span></h2>
-      <p class="section-intro">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores, email support. 7-day refund guarantee on first subscription.</p>
-      <div class="pricing-grid">
+      <h2>Pricing — <span class="accent">from solo dev to enterprise</span></h2>
+      <p class="section-intro">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores. 7-day refund guarantee on first subscription (self-serve tiers).</p>
+      <div class="pricing-grid pricing-grid-4">
         <div class="tier featured">
           <div class="name">Cloud</div>
           <div class="price">$9<span class="unit">/mo</span></div>
@@ -197,12 +197,25 @@
           </ul>
           <a href="#subscribe-team" data-stripe-tier="team" class="btn btn-secondary">Subscribe</a>
         </div>
+        <div class="tier tier-enterprise">
+          <div class="name">Enterprise</div>
+          <div class="price">Custom<span class="unit"> · annual</span></div>
+          <div class="desc">For organizations with security &amp; compliance needs</div>
+          <ul>
+            <li>Custom storage &amp; seat count</li>
+            <li>Dedicated data residency</li>
+            <li>Private peering / VPN (roadmap)</li>
+            <li>SOC 2 audit (in progress)</li>
+            <li>DPA + MSA + vendor security review</li>
+            <li>Git-push monitoring (roadmap)</li>
+            <li>On-prem / air-gapped deployment</li>
+            <li>Dedicated Slack + SLA</li>
+          </ul>
+          <a href="mailto:hello@driveware.dev?subject=DriveWare%20Enterprise%20inquiry" class="btn btn-secondary">Contact sales</a>
+        </div>
       </div>
       <p class="pricing-fineprint">
-        <strong style="color: var(--fg);">Enterprise</strong> — 10+ seats, custom storage, dedicated support, on-prem compliance, DPA + MSA on file. <a href="mailto:hello@driveware.dev">Contact sales</a>.
-      </p>
-      <p class="pricing-fineprint">
-        Managed tiers are currently provisioned manually by a real human within a few hours of your payment. Full self-serve automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout.
+        Self-serve tiers are currently provisioned manually by a real human within a few hours of your payment. Full self-serve automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout. Enterprise plans include a formal security review + legal paperwork window and are billed annually.
       </p>
       <script>
         const STRIPE_LINKS = {
@@ -226,7 +239,44 @@
     </div>
   </section>
 
-  <section id="faq" class="section-stripe">
+  <section id="security" class="section-stripe">
+    <div class="container reveal">
+      <h2>As safe as your <span class="accent">local dev machine</span></h2>
+      <p class="section-intro">Your workspace isn't a photo library — it's your code. DriveWare treats it accordingly. We're building toward the security posture of a developer laptop behind the company VPN, not generic consumer cloud.</p>
+      <div class="security-grid">
+        <div class="sec-block">
+          <div class="sec-label">Available today</div>
+          <ul class="sec-list">
+            <li><strong>Private per-customer buckets</strong> — no shared tenancy, no public endpoints</li>
+            <li><strong>Encrypted at rest</strong> — provider-level AES-256</li>
+            <li><strong>Scoped, rotatable API keys</strong> — one bucket, one key, revoke any time</li>
+            <li><strong>Data residency</strong> — you pick the region, we don't move it</li>
+            <li><strong>S3-compatible portability</strong> — migrate to any cloud with one <code>rclone sync</code></li>
+            <li><strong>Dev-aware archiving</strong> — secrets in <code>.env</code> never leave your filter rules</li>
+            <li><strong>DPA + MSA available</strong> — ready for your vendor security review</li>
+          </ul>
+        </div>
+        <div class="sec-block sec-block-roadmap">
+          <div class="sec-label">On roadmap (Enterprise co-developed)</div>
+          <ul class="sec-list">
+            <li><strong>Client-side end-to-end encryption</strong> — zero-knowledge, even we can't read your data</li>
+            <li><strong>Private peering &amp; VPN</strong> — direct VPC-to-VPC or WireGuard tunnel</li>
+            <li><strong>SOC 2 Type I → Type II</strong> — certification path scheduled</li>
+            <li><strong>ISO 27001</strong> — follows SOC 2</li>
+            <li><strong>Git-push monitoring</strong> — alert on pushes from untrusted machines (the Epsilon pattern)</li>
+            <li><strong>Advanced audit logging</strong> — every read, write, restore, SIEM-exportable</li>
+            <li><strong>On-prem / air-gapped appliance</strong> — for defense, finance, healthcare</li>
+            <li><strong>Hardware key (YubiKey) auth</strong> — tie access to physical security keys</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pricing-fineprint" style="margin-top: 28px;">
+        Building trust is a long game. We're not here to claim compliance badges we don't have — we're here to harden alongside our first enterprise customers. If you're evaluating DriveWare for a company with serious security requirements, <a href="mailto:hello@driveware.dev?subject=DriveWare%20Enterprise%20security%20review">contact us</a> — we'd rather build the exact controls your security team needs than check arbitrary boxes.
+      </p>
+    </div>
+  </section>
+
+  <section id="faq">
     <div class="container reveal">
       <h2>Frequently asked</h2>
       <p class="section-intro">If your question isn't here, email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> — we reply within a day.</p>
@@ -270,13 +320,37 @@
         <details class="faq-item">
           <summary>Can I self-host?</summary>
           <div class="answer">
-            DriveWare is closed-source and cloud-hosted for now. For teams with strict data-residency requirements, the Team tier supports custom regions, and Enterprise plans can include on-prem deployment. Email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> to discuss.
+            DriveWare is closed-source and cloud-hosted for now. For teams with strict data-residency requirements, the Team tier supports custom regions, and Enterprise plans can include on-prem appliance or air-gapped deployment. Email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> to discuss.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is my data encrypted end-to-end?</summary>
+          <div class="answer">
+            Today: data is <strong>encrypted at rest</strong> by the underlying cloud provider (AES-256) and in transit (TLS 1.3). Your bucket is private and scoped to you; nobody else can read it. <strong>Client-side zero-knowledge encryption</strong> (where even we can't read your data) is on the Enterprise roadmap — ask us if you need it sooner for your security review.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What's your SOC 2 / compliance status?</summary>
+          <div class="answer">
+            We're pre-SOC 2. Our certification path is scheduled and we'll share progress with Enterprise customers under NDA. In the meantime we can provide a <strong>written security posture statement</strong>, sign your DPA + MSA, and run through your vendor security review. We're honest about where we are — we won't claim certifications we don't have.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can we put this behind our VPN?</summary>
+          <div class="answer">
+            Enterprise roadmap: private peering (VPC-to-VPC) or WireGuard tunnel so DriveWare only answers from inside your network. If this is a blocker for procurement, let us know — we're co-developing this feature with our first enterprise customers and can scope an accelerated build.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can you alert us on risky git pushes from untrusted machines?</summary>
+          <div class="answer">
+            This is on the Enterprise roadmap — "git-push monitoring" (the pattern Epsilon and similar large orgs use internally). Our agent watches for pushes from machines not in your allowlist and fires webhooks / Slack alerts. Early access available to Enterprise customers during the pilot program.
           </div>
         </details>
         <details class="faq-item">
           <summary>Is there a free trial?</summary>
           <div class="answer">
-            Instead of a free trial, we offer a <strong>7-day full refund</strong> from the day we provision your install kit — no questions asked. Lower friction for us, less spam-account risk, same comfort for you.
+            Instead of a free trial, we offer a <strong>7-day full refund</strong> on self-serve tiers, from the day we provision your install kit — no questions asked. Lower friction for us, less spam-account risk, same comfort for you. Enterprise plans start with a paid proof-of-concept, typically 30 days, with success criteria agreed upfront.
           </div>
         </details>
       </div>
@@ -314,6 +388,7 @@
       <div class="links">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
+        <a href="#security">Security</a>
         <a href="#faq">FAQ</a>
         <a href="mailto:hello@driveware.dev">Contact</a>
       </div>
