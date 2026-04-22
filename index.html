@@ -4,21 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DriveWare — Dev-aware cloud workspace extension</title>
-  <meta name="description" content="Managed cloud storage that feels like a local folder. Dev-aware — skips node_modules, build artifacts, caches. Git-aware snapshots. No setup pain.">
+  <meta name="description" content="Managed cloud storage that feels like a local folder. Dev-aware — skips node_modules, build artifacts, caches. Git-aware snapshots. Built for developers.">
   <meta property="og:title" content="DriveWare — Dev-aware cloud workspace extension">
-  <meta property="og:description" content="Managed cloud storage for devs. Mounts as a local folder. Skips node_modules. Git-aware snapshots. $9/mo.">
+  <meta property="og:description" content="Managed cloud storage for devs. Mounts as a local folder. Skips node_modules. Git-aware snapshots. From $9/mo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://driveware.dev">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
     <div class="container">
-      <div class="logo">Drive<span>Ware</span></div>
+      <a href="/" class="logo-wordmark">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15a5 5 0 0 1 .9-9.9 6 6 0 0 1 11.6 1.1A4.5 4.5 0 0 1 20 15"/>
+            <path d="M12 11v10"/>
+            <path d="m8 15 4-4 4 4"/>
+          </svg>
+        </span>
+        <span class="name">DriveWare</span>
+      </a>
       <ul>
         <li><a href="#how">How it works</a></li>
         <li><a href="#filter">Dev-aware</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#pricing" class="nav-cta">Subscribe</a></li>
       </ul>
     </div>
@@ -26,12 +38,12 @@
 
   <section class="hero">
     <div class="container">
-      <span class="eyebrow"><span class="dot"></span>v0.2 — now live, managed tiers onboarding</span>
-      <h1>Your dev workspace,<br><span class="accent">extended into the cloud</span><br>without breaking your workflow.</h1>
-      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is a managed cloud storage service built for developers — dev-aware, git-aware, and mounts as a local folder.</p>
+      <span class="eyebrow"><span class="pulse"></span>v0.2 live · onboarding first cohort</span>
+      <h1>Your dev workspace, <span class="accent">extended into the cloud</span> — without breaking your workflow.</h1>
+      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is managed cloud storage built for developers — dev-aware, git-aware, and mounts as a local folder.</p>
       <div class="cta">
         <a href="#pricing" class="btn btn-primary btn-arrow">Subscribe — from $9/mo</a>
-        <span class="note">7-day refund · cancel anytime · macOS + Linux</span>
+        <span class="note">7-day refund · cancel anytime · macOS &amp; Linux</span>
       </div>
       <div class="terminal">
         <div class="bar">
@@ -52,11 +64,20 @@
           <span class="out out-ok">✓ archived. local copy intact — verify, then rm -rf to reclaim space</span>
         </div>
       </div>
+      <div class="trust-bar">
+        <div class="label">Built for developers who value</div>
+        <div class="items">
+          <span>Encrypted at rest</span>
+          <span>Your data in your region</span>
+          <span>7-day refund</span>
+          <span>No lock-in</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="why">
-    <div class="container">
+  <section id="why" class="section-stripe">
+    <div class="container reveal">
       <h2>Why not just use <span class="accent">&lt;insert tool&gt;</span>?</h2>
       <p class="section-intro">Every storage tool out there treats a 48,000-file <code>node_modules</code> directory the same as a single photo. DriveWare doesn't.</p>
       <div class="table-wrap">
@@ -76,9 +97,9 @@
   </section>
 
   <section id="how">
-    <div class="container">
+    <div class="container reveal">
       <h2>How it <span class="accent">works</span></h2>
-      <p class="section-intro">Three steps. Fully managed — you never touch a cloud dashboard.</p>
+      <p class="section-intro">Three steps. Fully managed — you never touch a cloud dashboard. The install kit arrives within hours of payment.</p>
       <div class="grid-3">
         <div class="card">
           <div class="num">1</div>
@@ -99,8 +120,8 @@
     </div>
   </section>
 
-  <section id="filter">
-    <div class="container">
+  <section id="filter" class="section-stripe">
+    <div class="container reveal">
       <h2>The <span class="accent">dev-aware</span> difference</h2>
       <p class="section-intro">Battle-tested ignore rules for every major language and framework, plus git- and DB-aware snapshots. This is what makes DriveWare not another Dropbox.</p>
       <div class="terminal" style="max-width: none;">
@@ -133,7 +154,7 @@
   </section>
 
   <section id="pricing">
-    <div class="container">
+    <div class="container reveal">
       <h2>Pricing — <span class="accent">managed, no setup pain</span></h2>
       <p class="section-intro">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores, email support. 7-day refund guarantee on first subscription.</p>
       <div class="pricing-grid">
@@ -178,10 +199,10 @@
         </div>
       </div>
       <p class="pricing-fineprint">
-        <strong>Enterprise</strong> (10+ seats, custom storage, dedicated support, on-prem compliance) — <a href="mailto:hello@driveware.dev">contact us</a>.
+        <strong style="color: var(--fg);">Enterprise</strong> — 10+ seats, custom storage, dedicated support, on-prem compliance, DPA + MSA on file. <a href="mailto:hello@driveware.dev">Contact sales</a>.
       </p>
       <p class="pricing-fineprint">
-        Managed tiers are currently provisioned manually by a real human within a few hours of your payment. Automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout.
+        Managed tiers are currently provisioned manually by a real human within a few hours of your payment. Full self-serve automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout.
       </p>
       <script>
         const STRIPE_LINKS = {
@@ -205,8 +226,65 @@
     </div>
   </section>
 
+  <section id="faq" class="section-stripe">
+    <div class="container reveal">
+      <h2>Frequently asked</h2>
+      <p class="section-intro">If your question isn't here, email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> — we reply within a day.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Where is my data stored?</summary>
+          <div class="answer">
+            Your encrypted data lives in a managed cloud bucket (Backblaze B2 by default; Cloudflare R2, Oracle OCI, and iDrive E2 available for specific regions). You pick the region at signup. Data is encrypted at rest with AES-256. We do not access file contents.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I cancel my subscription?</summary>
+          <div class="answer">
+            Cancel from your Stripe customer portal any time. Access continues through the end of the paid period. After cancellation, your data stays available for 30 days (in case you want to restore), then is permanently deleted.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is DriveWare a replacement for backup software?</summary>
+          <div class="answer">
+            No — DriveWare is <strong>workspace extension</strong> for inactive projects and archive storage. It's designed for dev work you want offloaded but accessible. For whole-system disaster recovery, keep using Time Machine, Backblaze Personal, or similar alongside DriveWare.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use it on Linux?</summary>
+          <div class="answer">
+            Yes. DriveWare works on macOS (Apple Silicon + Intel) and Linux (requires FUSE — <code>fuse3</code> on Debian/Ubuntu/Fedora/Arch). Windows support is on the v0.3 roadmap.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How big can my archive get?</summary>
+          <div class="answer">
+            Soft-limited by your tier: 100 GB on Cloud, 1 TB on Pro, 5 TB on Team. If you approach the limit we'll email you. Exceeding is billed as overage at $0.006/GB/mo, or you can upgrade. Enterprise plans support custom quotas.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How is this different from Dropbox or iCloud?</summary>
+          <div class="answer">
+            Dropbox and iCloud sync everything, including 50,000-file <code>node_modules</code> directories that crash their sync clients and clog bandwidth. DriveWare understands dev workflows — it skips regenerable artifacts, captures git state, and makes consistent database snapshots. It's built for code, not photos.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I self-host?</summary>
+          <div class="answer">
+            DriveWare is closed-source and cloud-hosted for now. For teams with strict data-residency requirements, the Team tier supports custom regions, and Enterprise plans can include on-prem deployment. Email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> to discuss.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a free trial?</summary>
+          <div class="answer">
+            Instead of a free trial, we offer a <strong>7-day full refund</strong> from the day we provision your install kit — no questions asked. Lower friction for us, less spam-account risk, same comfort for you.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="notify">
-    <div class="container">
+    <div class="container container-tight reveal">
       <div class="notify">
         <h3>Not ready to subscribe yet?</h3>
         <p>We're still onboarding the first cohort manually. Drop your email — we'll ping you when full self-serve checkout is live and when the menu bar app ships.</p>
@@ -223,13 +301,37 @@
 
   <footer>
     <div class="container">
+      <a href="/" class="logo-wordmark">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15a5 5 0 0 1 .9-9.9 6 6 0 0 1 11.6 1.1A4.5 4.5 0 0 1 20 15"/>
+            <path d="M12 11v10"/>
+            <path d="m8 15 4-4 4 4"/>
+          </svg>
+        </span>
+        <span class="name">DriveWare</span>
+      </a>
       <div class="links">
         <a href="/terms.html">Terms</a>
         <a href="/privacy.html">Privacy</a>
+        <a href="#faq">FAQ</a>
         <a href="mailto:hello@driveware.dev">Contact</a>
       </div>
-      <div>DriveWare is a product of CelVak. &copy; 2026.</div>
+      <div>A product of CelVak · &copy; 2026 · All rights reserved.</div>
     </div>
   </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
