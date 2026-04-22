@@ -66,9 +66,8 @@ nav .logo {
   font-size: 19px;
   letter-spacing: -0.01em;
   color: var(--fg);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
 }
 nav .logo span { color: var(--accent); }
 nav .logo::before {
@@ -78,6 +77,8 @@ nav .logo::before {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 10px var(--accent-glow);
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 nav ul { display: flex; list-style: none; gap: 28px; align-items: center; }
 nav ul a {
