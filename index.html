@@ -9,196 +9,7 @@
   <meta property="og:description" content="Managed cloud storage for devs. Mounts as a local folder. Skips node_modules. Git-aware snapshots. $9/mo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://driveware.dev">
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --bg-alt: #141414;
-      --fg: #e8e8e8;
-      --fg-dim: #8a8a8a;
-      --accent: #00ff88;
-      --accent-dim: #00cc6a;
-      --border: #222;
-      --code-bg: #1a1a1a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    code, pre { font-family: "SF Mono", "Monaco", "Menlo", monospace; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-dim); text-decoration: underline; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-
-    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
-    nav .logo { font-weight: 700; font-size: 20px; color: var(--fg); }
-    nav .logo span { color: var(--accent); }
-    nav ul { display: flex; list-style: none; gap: 32px; }
-    nav ul a { color: var(--fg-dim); font-size: 14px; }
-    nav ul a:hover { color: var(--fg); text-decoration: none; }
-
-    .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--border); }
-    .hero h1 {
-      font-size: 48px;
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      max-width: 720px;
-    }
-    .hero h1 .accent { color: var(--accent); }
-    .hero .tagline {
-      font-size: 20px;
-      color: var(--fg-dim);
-      margin-top: 20px;
-      max-width: 640px;
-    }
-    .hero .cta { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .hero .cta .note { color: var(--fg-dim); font-size: 14px; }
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.15s ease;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: var(--accent); color: var(--bg); }
-    .btn-primary:hover { background: var(--accent-dim); text-decoration: none; }
-    .btn-secondary {
-      background: transparent;
-      color: var(--fg);
-      border-color: var(--border);
-    }
-    .btn-secondary:hover { border-color: var(--fg-dim); text-decoration: none; }
-
-    section { padding: 70px 0; border-bottom: 1px solid var(--border); }
-    h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 32px; }
-    h2 .accent { color: var(--accent); }
-    h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
-
-    .code-demo {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 24px;
-      font-size: 14px;
-      overflow-x: auto;
-      margin-top: 20px;
-    }
-    .code-demo .prompt { color: var(--fg-dim); user-select: none; }
-    .code-demo .cmd { color: var(--accent); }
-    .code-demo .out { color: var(--fg-dim); display: block; margin-top: 8px; }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .card {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-    }
-    .card .num {
-      display: inline-block;
-      width: 32px; height: 32px;
-      background: var(--accent);
-      color: var(--bg);
-      border-radius: 50%;
-      text-align: center;
-      line-height: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .card p { color: var(--fg-dim); font-size: 15px; margin-top: 8px; }
-
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
-    th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
-    th { color: var(--fg-dim); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 32px;
-    }
-    .tier {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-    }
-    .tier.featured { border-color: var(--accent); position: relative; }
-    .tier.featured::before {
-      content: "Most popular";
-      position: absolute;
-      top: -12px; left: 24px;
-      background: var(--accent);
-      color: var(--bg);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .tier .name { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-dim); }
-    .tier .price { font-size: 32px; font-weight: 700; margin: 8px 0 4px; }
-    .tier .price .unit { font-size: 14px; color: var(--fg-dim); font-weight: 400; }
-    .tier .desc { font-size: 14px; color: var(--fg-dim); margin-bottom: 16px; }
-    .tier ul { list-style: none; margin-top: 12px; flex-grow: 1; }
-    .tier li {
-      font-size: 14px;
-      color: var(--fg);
-      margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
-    }
-    .tier li::before { content: "→"; color: var(--accent); position: absolute; left: 0; }
-
-    .waitlist {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 48px;
-      margin-top: 32px;
-      text-align: center;
-    }
-    .waitlist h3 { font-size: 24px; margin-bottom: 16px; }
-    .waitlist p { color: var(--fg-dim); margin-bottom: 24px; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .waitlist form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .waitlist input[type="email"] {
-      flex: 1;
-      min-width: 240px;
-      padding: 14px 18px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--fg);
-      font-size: 15px;
-    }
-    .waitlist input[type="email"]:focus { outline: none; border-color: var(--accent); }
-
-    footer { padding: 40px 0; color: var(--fg-dim); font-size: 14px; text-align: center; }
-    footer a { color: var(--fg-dim); }
-    footer .links { margin-bottom: 16px; }
-    footer .links a { margin: 0 12px; }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 36px; }
-      .hero .tagline { font-size: 18px; }
-      nav ul { display: none; }
-      h2 { font-size: 26px; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
@@ -208,23 +19,38 @@
         <li><a href="#how">How it works</a></li>
         <li><a href="#filter">Dev-aware</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#pricing" class="nav-cta">Subscribe</a></li>
       </ul>
     </div>
   </nav>
 
   <section class="hero">
     <div class="container">
-      <h1>Your dev workspace, <span class="accent">extended into the cloud</span> — without breaking your workflow.</h1>
+      <span class="eyebrow"><span class="dot"></span>v0.2 — now live, managed tiers onboarding</span>
+      <h1>Your dev workspace,<br><span class="accent">extended into the cloud</span><br>without breaking your workflow.</h1>
       <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is a managed cloud storage service built for developers — dev-aware, git-aware, and mounts as a local folder.</p>
       <div class="cta">
-        <a href="#pricing" class="btn btn-primary">Subscribe — from $9/mo</a>
-        <span class="note">7-day refund guarantee · cancel anytime</span>
+        <a href="#pricing" class="btn btn-primary btn-arrow">Subscribe — from $9/mo</a>
+        <span class="note">7-day refund · cancel anytime · macOS + Linux</span>
       </div>
-      <div class="code-demo">
-        <span class="prompt">$ </span><span class="cmd">driveware archive ~/projects/old-client-work</span>
-        <span class="out"># 2.3 GB uploaded (node_modules skipped)</span>
-        <span class="out"># git metadata captured: branch main, commit a7b1260, clean</span>
-        <span class="out"># local copy intact — verify, then rm -rf to reclaim space</span>
+      <div class="terminal">
+        <div class="bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="title">~/projects — driveware</span>
+        </div>
+        <div class="body">
+          <span><span class="prompt">$ </span><span class="cmd">driveware archive ~/projects/old-client-work</span></span>
+          <span class="out">→ scanning directory... 12,847 files, 8.4 GB raw</span>
+          <span class="out">→ applying dev-aware filter...</span>
+          <span class="out">  skipped: node_modules/ (6.1 GB, 48k files)</span>
+          <span class="out">  skipped: .next/ dist/ .cache/ (0.3 GB)</span>
+          <span class="out">→ capturing git metadata...</span>
+          <span class="out">  main @ a7b1260 (clean) · origin: github.com/you/old-client-work</span>
+          <span class="out">→ uploading 2.0 GB to managed cloud...</span>
+          <span class="out out-ok">✓ archived. local copy intact — verify, then rm -rf to reclaim space</span>
+        </div>
       </div>
     </div>
   </section>
@@ -232,23 +58,27 @@
   <section id="why">
     <div class="container">
       <h2>Why not just use <span class="accent">&lt;insert tool&gt;</span>?</h2>
-      <table>
-        <thead>
-          <tr><th>Problem</th><th>Existing fix</th><th>Why it falls short</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>SSD is full</td><td>External SSD</td><td>Fragile. Drop it, damage it, lose work.</td></tr>
-          <tr><td>Need cloud backup</td><td>Dropbox / iCloud / Drive</td><td>Not dev-aware. Syncs <code>node_modules</code>, chokes file watchers.</td></tr>
-          <tr><td>Need archive</td><td>Backblaze Personal, Arq</td><td>Backup-only. No workspace extension. No dev rules.</td></tr>
-          <tr><td>Move between machines</td><td>Manual rsync / git</td><td>Tedious. Loses state, build caches, uncommitted work.</td></tr>
-        </tbody>
-      </table>
+      <p class="section-intro">Every storage tool out there treats a 48,000-file <code>node_modules</code> directory the same as a single photo. DriveWare doesn't.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Problem</th><th>Existing fix</th><th>Why it falls short</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SSD is full</td><td>External SSD</td><td>Fragile. Drop it, damage it, lose work.</td></tr>
+            <tr><td>Need cloud backup</td><td>Dropbox · iCloud · Drive</td><td>Not dev-aware. Syncs <code>node_modules</code>, chokes file watchers.</td></tr>
+            <tr><td>Need archive</td><td>Backblaze Personal · Arq</td><td>Backup-only. No workspace extension. No dev rules.</td></tr>
+            <tr><td>Move between machines</td><td>Manual rsync · git</td><td>Tedious. Loses state, build caches, uncommitted work.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
   <section id="how">
     <div class="container">
       <h2>How it <span class="accent">works</span></h2>
+      <p class="section-intro">Three steps. Fully managed — you never touch a cloud dashboard.</p>
       <div class="grid-3">
         <div class="card">
           <div class="num">1</div>
@@ -272,24 +102,32 @@
   <section id="filter">
     <div class="container">
       <h2>The <span class="accent">dev-aware</span> difference</h2>
-      <p style="color: var(--fg-dim); max-width: 720px;">Dropbox and iCloud don't know what <code>node_modules</code> is. They'll happily try to sync 50,000 tiny files, crash the sync client, and clog your bandwidth. DriveWare ships with battle-tested ignore rules for every major language and framework, plus git- and DB-aware snapshots:</p>
-      <div class="code-demo" style="margin-top: 24px;">
-        <span class="out"># Skipped by default (regenerable, safe to drop):</span>
-        <span class="out">  node_modules/  .venv/  venv/  env/</span>
-        <span class="out">  target/  dist/  build/  .next/  .nuxt/  .turbo/</span>
-        <span class="out">  __pycache__/  *.pyc  .cache/  .pytest_cache/</span>
-        <span class="out">  .git/objects/pack/   (refs still sync)</span>
-        <span class="out">  .DS_Store  *.log  *.tmp</span>
-        <span class="out"></span>
-        <span class="out"># Captured at archive time (git-aware):</span>
-        <span class="out">  branch, commit SHA, dirty status, remotes, tags</span>
-        <span class="out"></span>
-        <span class="out"># DB-aware:</span>
-        <span class="out">  SQLite → consistent online-backup snapshots</span>
-        <span class="out">  Postgres / Mongo → warning to pg_dump / mongodump first</span>
-        <span class="out"></span>
-        <span class="out"># Build-aware:</span>
-        <span class="out">  Detects active webpack / vite / cargo / tsc → prompts before syncing</span>
+      <p class="section-intro">Battle-tested ignore rules for every major language and framework, plus git- and DB-aware snapshots. This is what makes DriveWare not another Dropbox.</p>
+      <div class="terminal" style="max-width: none;">
+        <div class="bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="title">rclone-filter.txt — DriveWare dev rules</span>
+        </div>
+        <div class="body">
+          <span class="out"># Skipped by default (regenerable, safe to drop):</span>
+          <span class="out">  node_modules/  .venv/  venv/  env/</span>
+          <span class="out">  target/  dist/  build/  .next/  .nuxt/  .turbo/</span>
+          <span class="out">  __pycache__/  *.pyc  .cache/  .pytest_cache/</span>
+          <span class="out">  .git/objects/pack/   (refs still sync)</span>
+          <span class="out">  .DS_Store  *.log  *.tmp</span>
+          <span class="out"></span>
+          <span class="out"># Captured at archive time (git-aware):</span>
+          <span class="out out-ok">  branch · commit SHA · dirty status · remotes · tags</span>
+          <span class="out"></span>
+          <span class="out"># DB-aware:</span>
+          <span class="out out-ok">  SQLite → consistent online-backup snapshots</span>
+          <span class="out out-warn">  Postgres · Mongo → warning to pg_dump / mongodump first</span>
+          <span class="out"></span>
+          <span class="out"># Build-aware:</span>
+          <span class="out out-ok">  Detects active webpack · vite · cargo · tsc → prompts before syncing</span>
+        </div>
       </div>
     </div>
   </section>
@@ -297,7 +135,7 @@
   <section id="pricing">
     <div class="container">
       <h2>Pricing — <span class="accent">managed, no setup pain</span></h2>
-      <p style="color: var(--fg-dim); max-width: 720px;">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores, email support. 7-day refund guarantee on first subscription.</p>
+      <p class="section-intro">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores, email support. 7-day refund guarantee on first subscription.</p>
       <div class="pricing-grid">
         <div class="tier featured">
           <div class="name">Cloud</div>
@@ -310,7 +148,7 @@
             <li>Email support</li>
             <li>macOS + Linux</li>
           </ul>
-          <a href="#subscribe-cloud" data-stripe-tier="cloud" class="btn btn-primary" style="margin-top: 20px; text-align: center;">Subscribe</a>
+          <a href="#subscribe-cloud" data-stripe-tier="cloud" class="btn btn-primary">Subscribe</a>
         </div>
         <div class="tier">
           <div class="name">Pro</div>
@@ -323,7 +161,7 @@
             <li>Advance access to v0.3 features</li>
             <li>Menu bar app (when released)</li>
           </ul>
-          <a href="#subscribe-pro" data-stripe-tier="pro" class="btn btn-secondary" style="margin-top: 20px; text-align: center;">Subscribe</a>
+          <a href="#subscribe-pro" data-stripe-tier="pro" class="btn btn-secondary">Subscribe</a>
         </div>
         <div class="tier">
           <div class="name">Team</div>
@@ -336,13 +174,13 @@
             <li>Priority support with SLA</li>
             <li>Invoice billing available</li>
           </ul>
-          <a href="#subscribe-team" data-stripe-tier="team" class="btn btn-secondary" style="margin-top: 20px; text-align: center;">Subscribe</a>
+          <a href="#subscribe-team" data-stripe-tier="team" class="btn btn-secondary">Subscribe</a>
         </div>
       </div>
-      <p style="color: var(--fg-dim); font-size: 13px; margin-top: 28px; max-width: 720px;">
+      <p class="pricing-fineprint">
         <strong>Enterprise</strong> (10+ seats, custom storage, dedicated support, on-prem compliance) — <a href="mailto:hello@driveware.dev">contact us</a>.
       </p>
-      <p style="color: var(--fg-dim); font-size: 13px; margin-top: 12px; max-width: 720px;">
+      <p class="pricing-fineprint">
         Managed tiers are currently provisioned manually by a real human within a few hours of your payment. Automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout.
       </p>
       <script>
@@ -369,7 +207,7 @@
 
   <section id="notify">
     <div class="container">
-      <div class="waitlist">
+      <div class="notify">
         <h3>Not ready to subscribe yet?</h3>
         <p>We're still onboarding the first cohort manually. Drop your email — we'll ping you when full self-serve checkout is live and when the menu bar app ships.</p>
         <form action="https://formsubmit.co/wingtonrbrito@gmail.com" method="POST">

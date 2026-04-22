@@ -4,80 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — DriveWare</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-      background: #0a0a0a; color: #e8e8e8; line-height: 1.7;
-      max-width: 720px; margin: 0 auto; padding: 40px 24px 80px;
-    }
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    h2 { font-size: 20px; margin: 40px 0 12px; color: #00ff88; }
-    p, li { color: #cfcfcf; }
-    a { color: #00ff88; }
-    .meta { color: #8a8a8a; font-size: 14px; margin-bottom: 32px; }
-    .nav { color: #8a8a8a; margin-bottom: 24px; font-size: 14px; }
-    code { background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
-    ul { padding-left: 20px; }
-    .tldr { background: #141414; border: 1px solid #222; border-left: 3px solid #00ff88; padding: 16px 20px; border-radius: 6px; margin: 24px 0; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="nav"><a href="/">← DriveWare</a></div>
-  <h1>Privacy Policy</h1>
-  <p class="meta">Last updated: April 21, 2026</p>
+  <div class="content-page">
+    <a href="/" class="back-link">← DriveWare</a>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: April 22, 2026</p>
 
-  <div class="tldr">
-    <strong>TL;DR</strong> — Free tier: we don't collect anything. Your data stays on your machine and in your own cloud account. Paid tiers: we collect your email and billing info (via Stripe) and store your data in the region you pick. We never sell data, and we never read your files.
+    <div class="tldr">
+      <strong>TL;DR</strong> — We collect your email and billing info (via Stripe) and store your data in the region you pick. We never sell data, and we never read your files. Encrypted at rest.
+    </div>
+
+    <h2>1. Landing page (driveware.dev)</h2>
+    <p>This website is served by GitHub Pages. GitHub logs basic request data (IP, user agent, timestamp) for abuse prevention; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. We do not run third-party analytics or advertising trackers.</p>
+    <p>If you submit the notify-when-live form, your email is sent to us via <a href="https://formsubmit.co">FormSubmit</a>. We use it only to notify you about launch milestones. Unsubscribe any time by replying "unsubscribe."</p>
+
+    <h2>2. Paid tiers (Cloud, Pro, Team)</h2>
+    <p>If you subscribe to a paid tier, we collect:</p>
+    <ul>
+      <li><strong>Account email</strong> — to authenticate your account and send service notices.</li>
+      <li><strong>Billing info</strong> — processed by <a href="https://stripe.com/privacy">Stripe</a>. We do not store card details; we only store a Stripe customer ID.</li>
+      <li><strong>Usage metadata</strong> — bucket size, last sync timestamp, error logs for the purpose of support and capacity planning. We do not inspect file contents.</li>
+    </ul>
+    <p><strong>Your file contents</strong> are stored in the cloud region you select (e.g., US-East, EU-West). Files are encrypted at rest by the underlying provider (typically AES-256). We do not access file contents. A decryption key derived from your account password (never transmitted in plaintext) is required for restore.</p>
+
+    <h2>3. Third parties</h2>
+    <p>If you use paid tiers, these third parties receive limited data from us in order to provide the service:</p>
+    <ul>
+      <li><strong>Stripe</strong> — payment processing. Receives your email, billing address, and payment method.</li>
+      <li><strong>Cloud storage vendor</strong> (Backblaze, Cloudflare, Oracle, iDrive, depending on your selected region) — stores your encrypted file data.</li>
+      <li><strong>Email provider</strong> (Postmark or similar) — delivers transactional emails (receipts, password reset).</li>
+    </ul>
+    <p>We do not sell, rent, or share your personal data with advertisers or data brokers.</p>
+
+    <h2>4. Data retention</h2>
+    <ul>
+      <li>If you cancel a paid subscription, your stored files remain accessible for 30 days, then deleted.</li>
+      <li>Account email and billing records are retained for 7 years for tax compliance, then deleted.</li>
+      <li>Notify-list emails are deleted if you request, or automatically 18 months after collection if inactive.</li>
+    </ul>
+
+    <h2>5. Your rights</h2>
+    <p>You may at any time:</p>
+    <ul>
+      <li><strong>Export</strong> your data using the DriveWare restore command, or by downloading directly from the managed bucket via a presigned URL on request.</li>
+      <li><strong>Delete</strong> your account — email <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> or use the account portal when available.</li>
+      <li><strong>Access</strong> a copy of data we hold about you — within 30 days of request.</li>
+    </ul>
+    <p>EU/UK users: you have rights under GDPR. California residents: you have rights under CCPA. Contact us to exercise them.</p>
+
+    <h2>6. Children</h2>
+    <p>DriveWare is not directed to children under 13 (or 16 in the EU). We do not knowingly collect data from children.</p>
+
+    <h2>7. Changes</h2>
+    <p>We will post material changes to this policy on this page and, for paid-tier subscribers, notify you by email at least 30 days in advance of changes taking effect.</p>
+
+    <h2>8. Contact</h2>
+    <p>Questions or requests: <a href="mailto:hello@driveware.dev">hello@driveware.dev</a></p>
   </div>
-
-  <h2>1. Free tier (Bring Your Own Cloud)</h2>
-  <p>The DriveWare CLI runs locally on your machine. It does not phone home, does not send telemetry, and does not transmit any of your data to us. Your files go directly from your machine to <em>your</em> cloud provider using credentials <em>you</em> supply. We have zero visibility into your data or credentials.</p>
-
-  <h2>2. Landing page (driveware.dev)</h2>
-  <p>This website is served by GitHub Pages. GitHub logs basic request data (IP, user agent, timestamp) for abuse prevention; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. We do not run third-party analytics or advertising trackers.</p>
-  <p>If you submit the waitlist form, your email is sent to us via <a href="https://formsubmit.co">FormSubmit</a>. We use it only to notify you when managed tiers launch. Unsubscribe any time by replying "unsubscribe."</p>
-
-  <h2>3. Paid tiers (Cloud, Pro, Team — when available)</h2>
-  <p>If you subscribe to a paid tier, we collect:</p>
-  <ul>
-    <li><strong>Account email</strong> — to authenticate your account and send service notices.</li>
-    <li><strong>Billing info</strong> — processed by <a href="https://stripe.com/privacy">Stripe</a>. We do not store card details; we only store a Stripe customer ID.</li>
-    <li><strong>Usage metadata</strong> — bucket size, last sync timestamp, error logs for the purpose of support and capacity planning. We do not inspect file contents.</li>
-  </ul>
-  <p><strong>Your file contents</strong> are stored in the cloud region you select (e.g., US-East, EU-West). Files are encrypted at rest by the underlying provider (typically AES-256). We do not access file contents. A decryption key derived from your account password (never transmitted in plaintext) is required for restore.</p>
-
-  <h2>4. Third parties</h2>
-  <p>If you use paid tiers, these third parties receive limited data from us in order to provide the service:</p>
-  <ul>
-    <li><strong>Stripe</strong> — payment processing. Receives your email, billing address, and payment method.</li>
-    <li><strong>Cloud storage vendor</strong> (Backblaze, Cloudflare, Oracle, iDrive, depending on your selected region) — stores your encrypted file data.</li>
-    <li><strong>Email provider</strong> (Postmark or similar) — delivers transactional emails (receipts, password reset).</li>
-  </ul>
-  <p>We do not sell, rent, or share your personal data with advertisers or data brokers.</p>
-
-  <h2>5. Data retention</h2>
-  <ul>
-    <li>If you cancel a paid subscription, your stored files remain accessible for 30 days, then deleted.</li>
-    <li>Account email and billing records are retained for 7 years for tax compliance, then deleted.</li>
-    <li>Waitlist emails are deleted if you request, or automatically 18 months after collection if inactive.</li>
-  </ul>
-
-  <h2>6. Your rights</h2>
-  <p>You may at any time:</p>
-  <ul>
-    <li><strong>Export</strong> your data using the DriveWare restore command, or by downloading directly from the managed bucket via a presigned URL on request.</li>
-    <li><strong>Delete</strong> your account — emails <a href="mailto:hello@driveware.dev">hello@driveware.dev</a> or use the account portal when available.</li>
-    <li><strong>Access</strong> a copy of data we hold about you — within 30 days of request.</li>
-  </ul>
-  <p>EU/UK users: you have rights under GDPR. California residents: you have rights under CCPA. Contact us to exercise them.</p>
-
-  <h2>7. Children</h2>
-  <p>DriveWare is not directed to children under 13 (or 16 in the EU). We do not knowingly collect data from children.</p>
-
-  <h2>8. Changes</h2>
-  <p>We will post material changes to this policy on this page and, for paid-tier subscribers, notify you by email at least 30 days in advance of changes taking effect.</p>
-
-  <h2>9. Contact</h2>
-  <p>Questions or requests: <a href="mailto:hello@driveware.dev">hello@driveware.dev</a></p>
 </body>
 </html>
