@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DriveWare — Dev-aware cloud workspace extension</title>
-  <meta name="description" content="Managed cloud storage that feels like a local folder. Dev-aware — skips node_modules, build artifacts, caches. Git-aware snapshots. Built for developers.">
-  <meta property="og:title" content="DriveWare — Dev-aware cloud workspace extension">
-  <meta property="og:description" content="Managed cloud storage for devs. Mounts as a local folder. Skips node_modules. Git-aware snapshots. From $9/mo.">
+  <title>DriveWare — Dev-aware cloud workspace extension · Open source · macOS · Linux · Windows</title>
+  <meta name="description" content="Mount cloud storage as a dev-aware local folder. Skips node_modules, captures git/DB state, restores workspaces on any machine. Free forever (BYOC, MIT). Managed from $9/mo.">
+  <meta property="og:title" content="DriveWare — Open-source cloud workspace extension for devs">
+  <meta property="og:description" content="Mount S3-compatible storage as a local folder. Skips node_modules. Git-aware snapshots. Multi-machine rehydrate. macOS + Linux + Windows. Free (BYOC) or managed from $9/mo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://driveware.dev">
   <link rel="preconnect" href="https://rsms.me/">
@@ -31,19 +31,21 @@
         <li><a href="#filter">Dev-aware</a></li>
         <li><a href="#security">Security</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#pricing" class="nav-cta">Subscribe</a></li>
+        <li><a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="#install" class="nav-cta">Install free</a></li>
       </ul>
     </div>
   </nav>
 
   <section class="hero">
     <div class="container">
-      <span class="eyebrow"><span class="pulse"></span>v0.2 live · onboarding first cohort</span>
+      <span class="eyebrow"><span class="pulse"></span>v0.3 live · open source (MIT) · macOS + Linux + Windows</span>
       <h1>Your dev workspace, <span class="accent">extended into the cloud</span> — without breaking your workflow.</h1>
-      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is managed cloud storage built for developers — dev-aware, git-aware, mounts as a local folder, and <span style="color: var(--fg);">secured like a laptop behind the company VPN</span>, not generic consumer cloud.</p>
+      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is dev-aware cloud storage that mounts as a local folder — skips <code style="background:var(--bg-elev);padding:1px 6px;border-radius:4px;font-size:0.95em;">node_modules</code>, captures git state, and restores entire workspaces on any machine with one command. <span style="color: var(--fg);">Free forever (bring your own cloud)</span>, or managed from $9/mo.</p>
       <div class="cta">
-        <a href="#pricing" class="btn btn-primary btn-arrow">Subscribe — from $9/mo</a>
-        <span class="note">7-day refund · cancel anytime · macOS &amp; Linux</span>
+        <a href="#install" class="btn btn-primary btn-arrow">Install free →</a>
+        <a href="#pricing" class="btn btn-secondary">Or subscribe — from $9/mo</a>
+        <span class="note">MIT licensed · 7-day refund on managed tiers · macOS, Linux &amp; Windows</span>
       </div>
       <div class="terminal">
         <div class="bar">
@@ -153,10 +155,57 @@
     </div>
   </section>
 
+  <section id="install" class="section-stripe">
+    <div class="container reveal">
+      <h2>Install free — <span class="accent">bring your own cloud</span></h2>
+      <p class="section-intro">The full DriveWare CLI is open source (MIT). Plug in your own Backblaze B2, Cloudflare R2, Oracle OCI, iDrive E2, AWS S3, or Wasabi — pay the cloud directly (~$0.60/100GB/mo on B2). We never see your data, your keys, or your bucket. Install in one command:</p>
+
+      <div class="terminal" style="margin-top: 28px; max-width: 760px;">
+        <div class="bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="title">install.sh</span>
+        </div>
+        <div class="body">
+          <span><span class="prompt">$ </span><span class="cmd">curl -fsSL https://driveware.dev/install.sh | bash</span></span>
+          <span class="out">→ Detected macOS · checking dependencies (git, curl, rclone)</span>
+          <span class="out">→ Cloning celvak/driveware-cli → ~/.driveware/cli</span>
+          <span class="out">→ Setup wizard:</span>
+          <span class="out">  1) Backblaze B2  (10GB free, default)</span>
+          <span class="out">  2) Cloudflare R2 (10GB free, $0 egress)</span>
+          <span class="out">  3) Oracle OCI    (20GB free, 10TB free egress)</span>
+          <span class="out">  4) iDrive E2 · 5) AWS S3 · 6) Wasabi</span>
+          <span class="out out-ok">✓ ~/driveware mounted. Try: ls ~/driveware</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 36px; max-width: 1000px;">
+        <div style="background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;">
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--fg-mid); margin-bottom: 6px;">macOS</div>
+          <div style="font-size: 14px; color: var(--fg);">Native NFS mount — no macFUSE, no reboot, works on Apple Silicon</div>
+        </div>
+        <div style="background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;">
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--fg-mid); margin-bottom: 6px;">Linux</div>
+          <div style="font-size: 14px; color: var(--fg);">FUSE mount — works where Backblaze Personal can't go</div>
+        </div>
+        <div style="background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;">
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--fg-mid); margin-bottom: 6px;">Windows</div>
+          <div style="font-size: 14px; color: var(--fg);">PowerShell scripts + WinFsp mount + Scheduled Task auto-start</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub →</a>
+        <span class="note" style="display: block; margin-top: 16px;">Don't pipe to bash if you'd rather not — clone manually, audit, then run. The script is &lt;100 lines.</span>
+      </div>
+    </div>
+  </section>
+
   <section id="pricing">
     <div class="container reveal">
-      <h2>Pricing — <span class="accent">from solo dev to enterprise</span></h2>
-      <p class="section-intro">All tiers include: git-aware snapshots, DB-aware dumps, auto-mount on login, encrypted at rest, unlimited restores. 7-day refund guarantee on first subscription (self-serve tiers).</p>
+      <h2>Or upgrade to managed — <span class="accent">we run the cloud for you</span></h2>
+      <p class="section-intro">Don't want to deal with cloud signup, key management, or paying a separate bill to Backblaze? Pick a managed tier and we provision a bucket, generate scoped keys, and email you a one-command install kit. All tiers include the open-source CLI plus: concierge install, no cloud signup pain, encrypted at rest, unlimited restores, 7-day refund.</p>
       <div class="pricing-grid pricing-grid-4">
         <div class="tier featured">
           <div class="name">Cloud</div>
