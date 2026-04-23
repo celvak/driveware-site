@@ -27,9 +27,9 @@
         <span class="name">DriveWare</span>
       </a>
       <ul>
+        <li><a href="#surfaces">Features</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#filter">Dev-aware</a></li>
-        <li><a href="#security">Security</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="#install" class="nav-cta">Install free</a></li>
@@ -39,9 +39,9 @@
 
   <section class="hero">
     <div class="container">
-      <span class="eyebrow"><span class="pulse"></span>v0.3 live · open source (MIT) · macOS + Linux + Windows</span>
-      <h1>Your dev workspace, <span class="accent">extended into the cloud</span> — without breaking your workflow.</h1>
-      <p class="tagline">Running out of disk space? Don't buy another external SSD you'll eventually lose or drop. DriveWare is dev-aware cloud storage that mounts as a local folder — skips <code style="background:var(--bg-elev);padding:1px 6px;border-radius:4px;font-size:0.95em;">node_modules</code>, captures git state, and restores entire workspaces on any machine with one command. <span style="color: var(--fg);">Free forever (bring your own cloud)</span>, or managed from $9/mo.</p>
+      <span class="eyebrow"><span class="pulse"></span>v0.4 live · open-source CLI core · managed cloud tier · macOS</span>
+      <h1>Your Mac, <span class="accent">extended into the cloud</span> — storage, services, compute, memory.</h1>
+      <p class="tagline">Stop buying external SSDs, stop burning battery on local Postgres, stop force-quitting Slack to free RAM. DriveWare gives you <b>one command per resource</b>: infinite <code style="background:var(--bg-elev);padding:1px 6px;border-radius:4px;font-size:0.95em;">~/driveware</code> disk, services on localhost that run in the cloud, builds that finish in seconds on a 32-core box, and idle apps that hibernate to cloud so your laptop stays fast. <span style="color: var(--fg);">Free forever (bring your own cloud)</span>, or managed from $9/mo.</p>
       <div class="cta">
         <a href="#install" class="btn btn-primary btn-arrow">Install free →</a>
         <a href="#pricing" class="btn btn-secondary">Or subscribe — from $9/mo</a>
@@ -55,15 +55,15 @@
           <span class="title">~/projects — driveware</span>
         </div>
         <div class="body">
-          <span><span class="prompt">$ </span><span class="cmd">driveware archive ~/projects/old-client-work</span></span>
-          <span class="out">→ scanning directory... 12,847 files, 8.4 GB raw</span>
-          <span class="out">→ applying dev-aware filter...</span>
-          <span class="out">  skipped: node_modules/ (6.1 GB, 48k files)</span>
-          <span class="out">  skipped: .next/ dist/ .cache/ (0.3 GB)</span>
-          <span class="out">→ capturing git metadata...</span>
-          <span class="out">  main @ a7b1260 (clean) · origin: github.com/you/old-client-work</span>
-          <span class="out">→ uploading 2.0 GB to managed cloud...</span>
-          <span class="out out-ok">✓ archived. local copy intact — verify, then rm -rf to reclaim space</span>
+          <span><span class="prompt">$ </span><span class="cmd">driveware provision hetzner</span></span>
+          <span class="out">==> creating server driveware-1 (cx22 @ fsn1, ubuntu-24.04)</span>
+          <span class="out">==> waiting for cloud-init (docker + tailscale)...</span>
+          <span class="out out-ok">✓ driveware-1 ready. run.toml updated.</span>
+          <span><span class="prompt">$ </span><span class="cmd">driveware run postgres</span></span>
+          <span class="out">==> forwarding localhost:5432 -&gt; driveware-postgres</span>
+          <span class="out out-ok">✓ ready: psql -h localhost</span>
+          <span><span class="prompt">$ </span><span class="cmd">time npm run build</span>   <span class="out">&nbsp;# auto-offloaded via shell hook</span></span>
+          <span class="out out-ok">✓ build 0 in 11s &nbsp;&nbsp;(was 94s local, M1 Air)</span>
         </div>
       </div>
       <div class="trust-bar">
@@ -75,6 +75,36 @@
           <span>No lock-in</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="surfaces">
+    <div class="container reveal">
+      <h2>One CLI. <span class="accent">Four resources.</span></h2>
+      <p class="section-intro">Each subcommand expands a different hardware constraint on your Mac. Pick any, use them independently, or all together.</p>
+      <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="card">
+          <div class="num">1</div>
+          <h3>driveware disk</h3>
+          <p><b>Infinite SSD.</b> Mount a cloud bucket at <code>~/driveware</code>. Dev-aware filter keeps <code>node_modules</code> off the wire. Archive idle projects, reclaim local GBs.</p>
+        </div>
+        <div class="card">
+          <div class="num">2</div>
+          <h3>driveware run</h3>
+          <p><b>Services on cloud, ports on localhost.</b> <code>driveware run postgres</code> starts Postgres on your remote host and forwards <code>localhost:5432</code>. No Docker burning battery.</p>
+        </div>
+        <div class="card">
+          <div class="num">3</div>
+          <h3>driveware build</h3>
+          <p><b>Builds in seconds, not minutes.</b> <code>npm run build</code> transparently offloads to a 32-core cloud box (via mutagen source sync). Artifacts land locally.</p>
+        </div>
+        <div class="card">
+          <div class="num">4</div>
+          <h3>driveware swap</h3>
+          <p><b>Apps stay open forever.</b> Idle apps hibernate to cloud. Menu-bar click wakes them. 16 GB Mac feels like 64 GB without ever quitting Slack or Chrome.</p>
+        </div>
+      </div>
+      <p class="section-intro" style="margin-top:1.5em;opacity:0.8;">Underneath: one unified CLI, one configurable cloud host, one shared bucket. See <a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener">the repo</a>.</p>
     </div>
   </section>
 
