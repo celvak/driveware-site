@@ -438,6 +438,16 @@ td code {
   font-weight: 500;
 }
 
+/* Feature matrix — wide table, scrolls on mobile. Compact cells, center-aligned tier columns. */
+.table-wrap:has(.feature-matrix) { overflow-x: auto; overflow-y: hidden; }
+.feature-matrix { min-width: 860px; font-size: 14px; }
+.feature-matrix th, .feature-matrix td { padding: 14px 16px; }
+.feature-matrix thead th { text-align: center; }
+.feature-matrix thead th:first-child { text-align: left; }
+.feature-matrix tbody td { text-align: center; color: var(--fg-mid); }
+.feature-matrix tbody td:first-child { text-align: left; color: var(--fg); }
+.feature-matrix tbody tr td[colspan] { text-align: left; padding: 14px 18px; font-size: 13px; letter-spacing: 0.02em; }
+
 /* ---------- HOW-IT-WORKS GRID ---------- */
 
 .grid-3 {

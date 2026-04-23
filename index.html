@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DriveWare — Dev-aware cloud workspace extension · Open source · macOS · Linux · Windows</title>
-  <meta name="description" content="Mount cloud storage as a dev-aware local folder. Skips node_modules, captures git/DB state, restores workspaces on any machine. Free forever (BYOC, MIT). Managed from $9/mo.">
-  <meta property="og:title" content="DriveWare — Open-source cloud workspace extension for devs">
-  <meta property="og:description" content="Mount S3-compatible storage as a local folder. Skips node_modules. Git-aware snapshots. Multi-machine rehydrate. macOS + Linux + Windows. Free (BYOC) or managed from $9/mo.">
+  <title>DriveWare — Your computer, without the ceiling.</title>
+  <meta name="description" content="Keep your old laptop. Expand local dev resources on demand — more storage, more memory, extra compute — one command or one click. Free (BYOC) or managed from $9/mo.">
+  <meta property="og:title" content="DriveWare — Your computer, without the ceiling.">
+  <meta property="og:description" content="In the age of AI, local resources get scarce fast. Keep working like you're local — with more storage, memory, and compute a click away. Free (BYOC) or managed from $9/mo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://driveware.dev">
   <link rel="preconnect" href="https://rsms.me/">
@@ -27,9 +27,9 @@
         <span class="name">DriveWare</span>
       </a>
       <ul>
-        <li><a href="#surfaces">Features</a></li>
+        <li><a href="#surfaces">Resources</a></li>
         <li><a href="#how">How it works</a></li>
-        <li><a href="#filter">Dev-aware</a></li>
+        <li><a href="#features">Compare tiers</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="#install" class="nav-cta">Install free</a></li>
@@ -40,8 +40,10 @@
   <section class="hero">
     <div class="container">
       <span class="eyebrow"><span class="pulse"></span>v0.4 live · open-source CLI core · managed cloud tier · macOS</span>
-      <h1>Your Mac, <span class="accent">extended into the cloud</span> — storage, services, compute, memory.</h1>
-      <p class="tagline">Stop buying external SSDs, stop burning battery on local Postgres, stop force-quitting Slack to free RAM. DriveWare gives you <b>one command per resource</b>: infinite <code style="background:var(--bg-elev);padding:1px 6px;border-radius:4px;font-size:0.95em;">~/driveware</code> disk, services on localhost that run in the cloud, builds that finish in seconds on a 32-core box, and idle apps that hibernate to cloud so your laptop stays fast. <span style="color: var(--fg);">Free forever (bring your own cloud)</span>, or managed from $9/mo.</p>
+      <h1>Your computer, <span class="accent">without the ceiling.</span></h1>
+      <p class="tagline">In the age of AI, local resources get scarce fast — and hitting the limits of your own machine mid-flow is frustrating. What if you could keep working exactly like you do locally, but with <b>more storage, more memory, and extra compute</b> a click away?</p>
+      <p class="tagline">Between a dozen Cursor tabs, a hundred browser tabs, Outlook, Slack, and everything else running in parallel, machines slow to a crawl — whether you're at work or at home. Why should you have to close your music app just to get work done? What if you could run it all and feel like you have an <b>unlimited, bigger computer</b>, without the pressure of buying new hardware?</p>
+      <p class="tagline" style="color:var(--fg); font-weight:500;">Keep your old machine. Keep working. Keep adapting to a fast-moving world.</p>
       <div class="cta">
         <a href="#install" class="btn btn-primary btn-arrow">Install free →</a>
         <a href="#pricing" class="btn btn-secondary">Or subscribe — from $9/mo</a>
@@ -229,6 +231,61 @@
         <a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub →</a>
         <span class="note" style="display: block; margin-top: 16px;">Don't pipe to bash if you'd rather not — clone manually, audit, then run. The script is &lt;100 lines.</span>
       </div>
+    </div>
+  </section>
+
+  <section id="features" class="section-stripe">
+    <div class="container reveal">
+      <h2>What you get, <span class="accent">tier by tier</span></h2>
+      <p class="section-intro">Free runs forever with your own cloud keys. Paid tiers add managed buckets + the memory &amp; compute resources (<code>run</code>, <code>build</code>, <code>swap</code>, <code>provision</code>). Pick by the resources you want to expand, not by a seat count.</p>
+
+      <div class="table-wrap">
+        <table class="feature-matrix">
+          <thead>
+            <tr>
+              <th style="min-width:260px;">Feature</th>
+              <th>Free<br><span style="font-weight:400;color:var(--fg-mid);font-size:0.82em;text-transform:none;letter-spacing:0;">BYOC · MIT</span></th>
+              <th>Cloud<br><span style="font-weight:400;color:var(--fg-mid);font-size:0.82em;text-transform:none;letter-spacing:0;">$9/mo</span></th>
+              <th>Pro<br><span style="font-weight:400;color:var(--fg-mid);font-size:0.82em;text-transform:none;letter-spacing:0;">$19/mo</span></th>
+              <th>Team<br><span style="font-weight:400;color:var(--fg-mid);font-size:0.82em;text-transform:none;letter-spacing:0;">$49/mo</span></th>
+              <th>Enterprise<br><span style="font-weight:400;color:var(--fg-mid);font-size:0.82em;text-transform:none;letter-spacing:0;">Custom</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="6" style="background:var(--bg-elev); font-weight:600; color:var(--fg);">💾 Storage — expand your disk</td></tr>
+            <tr><td><code>~/driveware</code> cloud-backed mount</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Dev-aware archive/restore (skip <code>node_modules</code>, build dirs)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Git-aware manifests (branch, commit SHA, dirty status)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>DB-aware snapshots (SQLite / Postgres / Mongo)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Docker volume snapshot/restore</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Multi-machine rehydrate (auto <code>npm ci</code>, <code>cargo fetch</code>, <code>uv sync</code>)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Storage quota</td><td>Your cloud,<br>your cost</td><td>100 GB</td><td>1 TB</td><td>5 TB</td><td>Custom</td></tr>
+
+            <tr><td colspan="6" style="background:var(--bg-elev); font-weight:600; color:var(--fg);">🧠 Memory &amp; compute — expand beyond your laptop</td></tr>
+            <tr><td><code>run</code> — services on localhost (Postgres, Redis, Mongo…)</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td><code>build</code> — offload <code>npm run build</code> / <code>cargo build</code> to cloud</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td><code>swap</code> — app hibernation, 16 GB feels like 64 GB</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>One-click cloud host provisioning (Hetzner / Fly / OCI)</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+
+            <tr><td colspan="6" style="background:var(--bg-elev); font-weight:600; color:var(--fg);">🎛 Control &amp; UX</td></tr>
+            <tr><td>Multi-cloud setup wizard (B2 · R2 · OCI · iDrive · S3 · Wasabi)</td><td>✅</td><td>Managed<br>for you</td><td>Managed</td><td>Managed</td><td>Managed</td></tr>
+            <tr><td>Local web dashboard (browser panel)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>SwiftUI menu bar app (macOS)</td><td>✅ unsigned</td><td>✅</td><td>✅</td><td>✅</td><td>✅ signed</td></tr>
+            <tr><td>Auto-mount at login (launchd · systemd · Scheduled Task)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Tamper-evident audit log (SHA-256 chain)</td><td>✅</td><td>✅</td><td>✅</td><td>✅ SIEM export</td><td>✅ SIEM export</td></tr>
+            <tr><td>Network gate (CIDR / VPN interface)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅ + private peering</td></tr>
+
+            <tr><td colspan="6" style="background:var(--bg-elev); font-weight:600; color:var(--fg);">🤝 Onboarding &amp; support</td></tr>
+            <tr><td>Managed bucket + scoped keys (no cloud signup)</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Workspaces / users</td><td>Unlimited<br>(self)</td><td>1 machine</td><td>3 machines</td><td>5 users</td><td>Custom</td></tr>
+            <tr><td>SSO + admin audit dashboard</td><td>—</td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Support</td><td>GitHub<br>issues</td><td>Email</td><td>Priority<br>email</td><td>Priority<br>+ SLA</td><td>Dedicated Slack<br>+ SLA</td></tr>
+            <tr><td>DPA + MSA + vendor security review</td><td>—</td><td>—</td><td>—</td><td>DPA</td><td>✅ Full</td></tr>
+            <tr><td>On-prem / air-gapped deployment</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✅</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-intro" style="margin-top:20px; opacity:0.8; font-size:0.92em;">Every paid tier includes the full open-source CLI plus the managed layer. You can always drop back to Free and keep your bucket.</p>
     </div>
   </section>
 
