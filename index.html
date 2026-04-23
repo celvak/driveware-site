@@ -46,7 +46,7 @@
       <p class="tagline" style="color:var(--fg); font-weight:500;">Keep your old machine. Keep working. Keep adapting to a fast-moving world.</p>
       <div class="cta">
         <a href="#install" class="btn btn-primary btn-arrow">Install free →</a>
-        <a href="#pricing" class="btn btn-secondary">Or subscribe — from $9/mo</a>
+        <a href="#try-section" class="btn btn-secondary">Try without signup (14 days)</a>
         <span class="note">MIT licensed · 7-day refund on managed tiers · macOS, Linux &amp; Windows</span>
       </div>
       <div class="terminal term-animated" id="hero-terminal">
@@ -348,6 +348,39 @@
     </div>
   </section>
 
+  <section id="try-section">
+    <div class="container reveal">
+      <h2>Try it in <span class="accent">60 seconds — no signup</span></h2>
+      <p class="section-intro">No email. No credit card. No cloud account. One command gives you 5 GB on a DriveWare-hosted bucket for 14 days. When you're hooked, either bring your own cloud (free forever) or upgrade — your data migrates with you either way.</p>
+
+      <div class="terminal" style="max-width: 760px;">
+        <div class="bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="title">try.sh</span>
+        </div>
+        <div class="body">
+          <span><span class="prompt">$ </span><span class="cmd">curl -fsSL https://driveware.dev/install.sh | bash</span></span>
+          <span><span class="prompt">$ </span><span class="cmd">driveware try</span></span>
+          <span class="out">→ No signup needed. Provisioning 5 GB trial bucket...</span>
+          <span class="out out-ok">✓ trial ready — 14 days, bucket: driveware-try/try/a1b2c3…</span>
+          <span><span class="prompt">$ </span><span class="cmd">driveware try mount</span></span>
+          <span class="out out-ok">✓ mounted. Your trial workspace: ~/driveware-try</span>
+          <span class="out">&nbsp;</span>
+          <span class="out"># 14 days later, pick your path:</span>
+          <span class="out">→ <span class="cmd">driveware setup</span>         # bring your own cloud, free forever</span>
+          <span class="out">→ <span class="cmd">driveware try upgrade</span>    # keep data, become Cloud ($9/mo)</span>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="#install" class="btn btn-primary btn-arrow">Install the CLI now</a>
+        <span class="note" style="display:block; margin-top:14px;">Trials auto-expire at day 14. Data is deleted 7 days after expiry unless you migrate.</span>
+      </div>
+    </div>
+  </section>
+
   <section id="install" class="section-stripe">
     <div class="container reveal">
       <h2>Install free — <span class="accent">bring your own cloud</span></h2>
@@ -365,9 +398,9 @@
           <span class="out">→ Detected macOS · checking dependencies (git, curl, rclone)</span>
           <span class="out">→ Cloning celvak/driveware-cli → ~/.driveware/cli</span>
           <span class="out">→ Setup wizard:</span>
-          <span class="out">  1) Backblaze B2  (10GB free, default)</span>
-          <span class="out">  2) Cloudflare R2 (10GB free, $0 egress)</span>
-          <span class="out">  3) Oracle OCI    (20GB free, 10TB free egress)</span>
+          <span class="out">  1) Cloudflare R2 (10GB free, $0 egress forever) &nbsp;<span class="out-ok">[default]</span></span>
+          <span class="out">  2) Backblaze B2  (10GB free, $0.006/GB storage)</span>
+          <span class="out">  3) Oracle OCI    (20GB perma-free, 10TB free egress)</span>
           <span class="out">  4) iDrive E2 · 5) AWS S3 · 6) Wasabi</span>
           <span class="out out-ok">✓ ~/driveware mounted. Try: ls ~/driveware</span>
         </div>
@@ -512,21 +545,86 @@
         </div>
       </div>
       <p class="pricing-fineprint">
-        Self-serve tiers are currently provisioned manually by a real human within a few hours of your payment. Full self-serve automation lands in v0.3. Your 7-day refund window starts at provisioning, not checkout. Enterprise plans include a formal security review + legal paperwork window and are billed annually.
+        All self-serve tiers are fully automated — Stripe webhook provisions your bucket + scoped keys and emails the install kit within seconds. Your 7-day refund window starts at provisioning, not checkout. Enterprise plans include a formal security review + legal paperwork window and are billed annually.
+      </p>
+      <p class="pricing-fineprint">
+        <strong style="color:var(--accent);">Refer a friend →</strong> <a href="#" id="ref-link" style="color:var(--fg-mid);">copy your referral link</a> <span style="color:var(--fg-dim);">— when they subscribe, you both get 30 days of Cloud free.</span>
       </p>
       <script>
+        (function(){
+          const a = document.getElementById('ref-link');
+          if (!a) return;
+          let ref;
+          try { ref = localStorage.getItem('dw-my-ref'); } catch (e) {}
+          if (!ref) {
+            ref = Math.random().toString(36).slice(2, 10);
+            try { localStorage.setItem('dw-my-ref', ref); } catch (e) {}
+          }
+          const url = `https://driveware.dev/?ref=${ref}`;
+          a.href = url;
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(url).then(() => {
+                const orig = a.textContent;
+                a.textContent = '✓ copied — ' + url;
+                setTimeout(() => { a.textContent = orig; }, 2000);
+              });
+            } else {
+              prompt('Your referral link:', url);
+            }
+          });
+        })();
+      </script>
+      <script>
+        // --- Referral + try-token capture ---
+        (function() {
+          const qs = new URLSearchParams(location.search);
+          const ref = qs.get('ref');
+          if (ref) {
+            try { localStorage.setItem('dw-ref', ref); } catch (e) {}
+            // Fire-and-forget attribution ping
+            fetch('https://api.driveware.dev/referral/track', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ ref, destination: location.pathname + location.hash }),
+            }).catch(() => {});
+          }
+          const tryToken = qs.get('try_token');
+          if (tryToken) { try { localStorage.setItem('dw-try-token', tryToken); } catch (e) {} }
+        })();
+
         const STRIPE_LINKS = {
           cloud: 'https://buy.stripe.com/REPLACE_WITH_CLOUD_LINK',
           pro:   'https://buy.stripe.com/REPLACE_WITH_PRO_LINK',
           team:  'https://buy.stripe.com/REPLACE_WITH_TEAM_LINK',
         };
+
+        function decoratedLink(base, tier) {
+          let ref = null, tryTok = null;
+          try { ref = localStorage.getItem('dw-ref'); tryTok = localStorage.getItem('dw-try-token'); } catch (e) {}
+          const params = new URLSearchParams();
+          if (ref) params.set('client_reference_id', ref);
+          // Stripe prefilled_email is handled by the Payment Link itself; metadata goes in success URL
+          const metaParts = [];
+          if (ref) metaParts.push(`ref=${encodeURIComponent(ref)}`);
+          if (tryTok) metaParts.push(`try_token=${encodeURIComponent(tryTok)}`);
+          metaParts.push(`tier=${encodeURIComponent(tier)}`);
+          // Stripe Payment Links accept prefix params directly. For full metadata you'd need Checkout Sessions.
+          return params.toString() ? `${base}?${params.toString()}` : base;
+        }
+
         document.querySelectorAll('[data-stripe-tier]').forEach(el => {
           const tier = el.dataset.stripeTier;
-          const link = STRIPE_LINKS[tier];
-          if (link && !link.includes('REPLACE_WITH')) {
-            el.href = link;
+          const base = STRIPE_LINKS[tier];
+          if (base && !base.includes('REPLACE_WITH')) {
+            el.href = decoratedLink(base, tier);
             el.target = '_blank';
             el.rel = 'noopener';
+            el.addEventListener('click', () => {
+              // keep the decorated URL fresh at click-time (ref may have just been set)
+              el.href = decoratedLink(base, tier);
+            });
           } else {
             el.href = '#notify';
             el.textContent = 'Notify me when live';
