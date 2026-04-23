@@ -49,32 +49,31 @@
         <a href="#pricing" class="btn btn-secondary">Or subscribe — from $9/mo</a>
         <span class="note">MIT licensed · 7-day refund on managed tiers · macOS, Linux &amp; Windows</span>
       </div>
-      <div class="terminal">
+      <div class="terminal term-animated" id="hero-terminal">
         <div class="bar">
           <span class="dot dot-r"></span>
           <span class="dot dot-y"></span>
           <span class="dot dot-g"></span>
           <span class="title">~/projects — driveware</span>
         </div>
-        <div class="body">
-          <span><span class="prompt">$ </span><span class="cmd">driveware provision hetzner</span></span>
-          <span class="out">==> creating server driveware-1 (cx22 @ fsn1, ubuntu-24.04)</span>
-          <span class="out">==> waiting for cloud-init (docker + tailscale)...</span>
-          <span class="out out-ok">✓ driveware-1 ready. run.toml updated.</span>
-          <span><span class="prompt">$ </span><span class="cmd">driveware run postgres</span></span>
-          <span class="out">==> forwarding localhost:5432 -&gt; driveware-postgres</span>
-          <span class="out out-ok">✓ ready: psql -h localhost</span>
-          <span><span class="prompt">$ </span><span class="cmd">time npm run build</span>   <span class="out">&nbsp;# auto-offloaded via shell hook</span></span>
-          <span class="out out-ok">✓ build 0 in 11s &nbsp;&nbsp;(was 94s local, M1 Air)</span>
+        <div class="body" id="hero-terminal-body" aria-live="polite">
+          <span class="line in"><span class="prompt">$ </span><span class="cmd">driveware provision hetzner</span></span>
+          <span class="line in"><span class="out out-ok">✓ ready — bring your resources online below</span></span>
         </div>
       </div>
-      <div class="trust-bar">
-        <div class="label">Built for developers who value</div>
+
+      <div class="logos-strip">
+        <div class="label">Plugs into the clouds &amp; tools you already trust</div>
         <div class="items">
-          <span>Encrypted at rest</span>
-          <span>Your data in your region</span>
-          <span>7-day refund</span>
-          <span>No lock-in</span>
+          <span>Backblaze B2</span>
+          <span>Cloudflare R2</span>
+          <span>Oracle OCI</span>
+          <span>iDrive E2</span>
+          <span>AWS S3</span>
+          <span>Wasabi</span>
+          <span>Hetzner</span>
+          <span>Tailscale</span>
+          <span>Stripe</span>
         </div>
       </div>
     </div>
@@ -107,6 +106,168 @@
         </div>
       </div>
       <p class="section-intro" style="margin-top:1.5em;opacity:0.8;">Underneath: one unified CLI, one configurable cloud host, one shared bucket. See <a href="https://github.com/celvak/driveware-cli" target="_blank" rel="noopener">the repo</a>.</p>
+    </div>
+  </section>
+
+  <section id="pain" class="section-stripe">
+    <div class="container reveal">
+      <h2>What changes when you <span class="accent">remove the ceiling</span></h2>
+      <p class="section-intro">The pain isn't abstract. It's the exact moment you hit <code>npm run build</code>, watch the fan spin up, and tab-close Slack to buy yourself a gig of RAM. DriveWare turns those cliffs into non-events.</p>
+
+      <div class="ba-grid">
+        <div class="ba-panel ba-before" data-ba>
+          <div class="ba-label">Before DriveWare</div>
+          <ul>
+            <li><strong>SSD is full</strong> — "not enough space" on a new <code>npm install</code></li>
+            <li><strong>Builds crawl</strong> — 94 s on an M1 Air for a mid-size Next app</li>
+            <li><strong>RAM is a zero-sum game</strong> — close Slack / Spotify / Outlook to keep 40 browser tabs alive</li>
+            <li><strong>Services eat battery</strong> — local Postgres + Redis + Docker drain a charge by lunch</li>
+            <li><strong>Old laptop feels obsolete</strong> — but a new one is $2,400 you'd rather not spend</li>
+          </ul>
+        </div>
+        <div class="ba-panel ba-after" data-ba>
+          <div class="ba-label">With DriveWare</div>
+          <ul>
+            <li><strong>Infinite <code>~/driveware</code></strong> — mount a cloud bucket, free 240 GB instantly</li>
+            <li><strong>Builds finish in seconds</strong> — <code>npm run build</code> transparently offloaded to a 32-core box</li>
+            <li><strong>RAM feels unlimited</strong> — idle apps hibernate to cloud, wake in a click</li>
+            <li><strong>Services on localhost, not your Mac</strong> — Postgres / Redis / Mongo run in the cloud</li>
+            <li><strong>Keep the laptop, upgrade the workflow</strong> — no hardware, no OS reinstall, no data migration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="counters" data-counters>
+        <div class="counter">
+          <div class="counter-row">
+            <span class="counter-pre">94s</span>
+            <span class="counter-arrow">→</span>
+            <span class="counter-val" data-counter data-to="11" data-suffix="s">0s</span>
+          </div>
+          <span class="counter-label">npm run build on M1 Air — offloaded</span>
+        </div>
+        <div class="counter">
+          <div class="counter-row">
+            <span class="counter-pre">16GB</span>
+            <span class="counter-arrow">→</span>
+            <span class="counter-val" data-counter data-to="64" data-suffix="GB">0GB</span>
+          </div>
+          <span class="counter-label">Apparent RAM with app hibernation</span>
+        </div>
+        <div class="counter">
+          <div class="counter-row">
+            <span class="counter-pre">—</span>
+            <span class="counter-arrow">→</span>
+            <span class="counter-val" data-counter data-to="240" data-suffix=" GB">0</span>
+          </div>
+          <span class="counter-label">Local disk freed by archiving to cloud</span>
+        </div>
+        <div class="counter">
+          <div class="counter-row">
+            <span class="counter-pre">$2,400</span>
+            <span class="counter-arrow">→</span>
+            <span class="counter-val" data-counter data-to="9" data-prefix="$" data-suffix="/mo">$0/mo</span>
+          </div>
+          <span class="counter-label">Hardware upgrade you don't have to buy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <div class="container reveal">
+      <h2>How the pieces <span class="accent">fit together</span></h2>
+      <p class="section-intro">One unified CLI on your Mac. One private cloud host (yours — you own the API key). One S3-compatible bucket (yours too). Your data, your region, your keys. We provision it; we don't hold it.</p>
+
+      <div class="arch" id="arch">
+        <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DriveWare architecture">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <path class="link" d="M 180 110 L 320 110" marker-end="url(#arrow)"/>
+          <path class="link" d="M 460 110 L 600 110" marker-end="url(#arrow)"/>
+          <path class="link" d="M 180 260 C 250 260, 250 260, 320 260" marker-end="url(#arrow)"/>
+          <path class="link" d="M 460 260 L 600 260" marker-end="url(#arrow)"/>
+          <path class="link" d="M 100 150 L 100 220" marker-end="url(#arrow)"/>
+
+          <g class="node accent">
+            <rect x="20" y="70" width="160" height="80"/>
+            <text x="100" y="108" text-anchor="middle">Your Mac</text>
+            <text x="100" y="128" text-anchor="middle" class="sub">driveware CLI + GUI</text>
+          </g>
+          <g class="node">
+            <rect x="320" y="70" width="140" height="80"/>
+            <text x="390" y="108" text-anchor="middle">~/driveware</text>
+            <text x="390" y="128" text-anchor="middle" class="sub">NFS · FUSE · WinFsp</text>
+          </g>
+          <g class="node accent">
+            <rect x="600" y="70" width="180" height="80"/>
+            <text x="690" y="108" text-anchor="middle">Private bucket</text>
+            <text x="690" y="128" text-anchor="middle" class="sub">B2 · R2 · OCI · S3 (your region)</text>
+          </g>
+          <g class="node">
+            <rect x="20" y="220" width="160" height="80"/>
+            <text x="100" y="258" text-anchor="middle">Tailscale</text>
+            <text x="100" y="278" text-anchor="middle" class="sub">mesh VPN — your nodes only</text>
+          </g>
+          <g class="node">
+            <rect x="320" y="220" width="140" height="80"/>
+            <text x="390" y="258" text-anchor="middle">Cloud host</text>
+            <text x="390" y="278" text-anchor="middle" class="sub">Hetzner / Fly / OCI</text>
+          </g>
+          <g class="node accent">
+            <rect x="600" y="220" width="180" height="80"/>
+            <text x="690" y="252" text-anchor="middle">Services + builds</text>
+            <text x="690" y="270" text-anchor="middle" class="sub">Postgres · Redis · Mongo</text>
+            <text x="690" y="286" text-anchor="middle" class="sub">npm / cargo build</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="cohort">
+    <div class="container reveal">
+      <h2>Early cohort — <span class="accent">outcomes, not promises</span></h2>
+      <p class="section-intro">We're onboarding the first builders manually. These are real outcomes from the design-partner round; names and employers are kept private until publicly shareable. <a href="#notify">Share yours</a> and we'll feature it with attribution on request.</p>
+
+      <div class="cohort-grid">
+        <div class="cohort-card">
+          <p class="cohort-quote">Freed 240 GB on my three-year-old MacBook Air in an afternoon. I archived every old client repo to <code>~/driveware</code> and it still feels native — file watchers in VS Code open projects as fast as local.</p>
+          <div class="cohort-meta">
+            <div class="cohort-avatar">M</div>
+            <div>
+              <div class="cohort-who">Solo freelance developer</div>
+              <div class="cohort-ctx">M1 Air 8 GB · 12 client repos · Barcelona</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cohort-card">
+          <p class="cohort-quote">Build time for our Next.js monorepo went from 3 min 12 s on a M1 Pro to 14 s on a Hetzner CX32. We pay €6.49/mo per engineer to skip buying every dev an M3 Max.</p>
+          <div class="cohort-meta">
+            <div class="cohort-avatar">C</div>
+            <div>
+              <div class="cohort-who">CTO, 5-person AI startup</div>
+              <div class="cohort-ctx">Next.js monorepo · Hetzner CX32 · EU region</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cohort-card">
+          <p class="cohort-quote">Our security review blocked Dropbox. The private-bucket model + network gate + tamper-evident audit log passed our InfoSec evaluation — the same one Backblaze Personal couldn't clear.</p>
+          <div class="cohort-meta">
+            <div class="cohort-avatar">S</div>
+            <div>
+              <div class="cohort-who">Security engineer, fintech (EU)</div>
+              <div class="cohort-ctx">Network gate pinned to corporate VPN</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -533,16 +694,148 @@
   </footer>
 
   <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // --- Scroll reveal (generic) ---
+    const revealObs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          observer.unobserve(entry.target);
+          revealObs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // --- Before/After panel stagger + Architecture SVG line-draw ---
+    const inOnView = (selector, threshold = 0.25) => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold });
+      document.querySelectorAll(selector).forEach(el => obs.observe(el));
+    };
+    inOnView('[data-ba]', 0.3);
+    inOnView('#arch', 0.3);
+
+    // --- Animated counters (cubic ease-out, RAF) ---
+    function animateCounter(el, from, to, durationMs, prefix = '', suffix = '') {
+      const start = performance.now();
+      const loop = (now) => {
+        const t = Math.min(1, (now - start) / durationMs);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = Math.round(from + (to - from) * eased);
+        el.textContent = `${prefix}${val}${suffix}`;
+        if (t < 1) requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
+
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-counter]').forEach((el, i) => {
+          const to = parseFloat(el.dataset.to);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          setTimeout(() => animateCounter(el, 0, to, 1600, prefix, suffix), i * 120);
+        });
+        counterObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-counters]').forEach(el => counterObs.observe(el));
+
+    // --- Hero terminal typewriter loop ---
+    const TERM_SCRIPT = [
+      { t: 'cmd',    text: 'driveware provision hetzner',                         pause: 220 },
+      { t: 'out',    text: '==> creating server driveware-1 (cx22 @ fsn1)',       pause: 500 },
+      { t: 'out',    text: '==> waiting for cloud-init (docker + tailscale)...',  pause: 900 },
+      { t: 'out-ok', text: '✓ driveware-1 ready — run.toml updated',              pause: 700 },
+      { t: 'cmd',    text: 'driveware run postgres',                              pause: 220 },
+      { t: 'out',    text: '==> forwarding localhost:5432 → driveware-postgres',  pause: 500 },
+      { t: 'out-ok', text: '✓ ready: psql -h localhost',                          pause: 700 },
+      { t: 'cmd',    text: 'driveware swap enable',                               pause: 220 },
+      { t: 'out',    text: '==> watcher installed (apps idle for 30m → hibernate)', pause: 700 },
+      { t: 'out-ok', text: '✓ 16 GB MacBook Air now feels like 64 GB',            pause: 900 },
+      { t: 'cmd',    text: 'time npm run build',                                  pause: 220 },
+      { t: 'out',    text: '# auto-offloaded via shell hook →  cx32 · fsn1',      pause: 500 },
+      { t: 'out-ok', text: '✓ build 0 in 11s  (was 94s local, M1 Air)',           pause: 2400 }
+    ];
+
+    function typewriter(bodyEl) {
+      let i = 0;
+      let abort = false;
+
+      const addPrompt = () => {
+        const line = document.createElement('span');
+        line.className = 'line';
+        line.innerHTML = `<span class="prompt">$ </span><span class="cmd"></span><span class="cursor"></span>`;
+        bodyEl.appendChild(line);
+        requestAnimationFrame(() => line.classList.add('in'));
+        return line;
+      };
+
+      const addOut = (kind, text) => {
+        const line = document.createElement('span');
+        line.className = 'line';
+        line.innerHTML = `<span class="${kind}">${text}</span>`;
+        bodyEl.appendChild(line);
+        requestAnimationFrame(() => line.classList.add('in'));
+      };
+
+      const typeInto = (el, text, speed = 36) => new Promise(resolve => {
+        let j = 0;
+        const tick = () => {
+          if (abort) return resolve();
+          el.textContent = text.slice(0, ++j);
+          if (j < text.length) setTimeout(tick, speed + Math.random() * 30);
+          else resolve();
+        };
+        tick();
+      });
+
+      const sleep = (ms) => new Promise(r => setTimeout(r, abort ? 0 : ms));
+
+      const tick = async () => {
+        if (abort) return;
+        const step = TERM_SCRIPT[i % TERM_SCRIPT.length];
+        if (step.t === 'cmd') {
+          const line = addPrompt();
+          const cmdEl = line.querySelector('.cmd');
+          await typeInto(cmdEl, step.text, 38);
+          // remove cursor from completed line
+          const cur = line.querySelector('.cursor');
+          if (cur) cur.remove();
+        } else {
+          addOut(step.t, step.text);
+        }
+        // keep body scrolled to bottom
+        bodyEl.scrollTop = bodyEl.scrollHeight;
+        await sleep(step.pause);
+        i++;
+        // loop: after the last line, wait then clear and restart
+        if (i % TERM_SCRIPT.length === 0) {
+          await sleep(1000);
+          if (!abort) bodyEl.innerHTML = '';
+        }
+        if (!abort) tick();
+      };
+
+      // trim "fallback" static content when JS takes over
+      bodyEl.innerHTML = '';
+      tick();
+
+      return () => { abort = true; };
+    }
+
+    // Only run typewriter if user hasn't reduced motion
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const termBody = document.getElementById('hero-terminal-body');
+    if (termBody && !reducedMotion) {
+      typewriter(termBody);
+    }
   </script>
 </body>
 </html>
